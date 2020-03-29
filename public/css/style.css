@@ -28,6 +28,33 @@ body {
   z-index: 1;
 }
 
+#bg-shape {
+  width: 60px;
+  height: 422px;
+  background: #89deff;
+  position: absolute;
+  z-index: 0;
+}
+#bg-shape:before,
+#bg-shape:after {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  left: 0;
+  width: 60px;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+#bg-shape:after {
+  bottom: -20px;
+  border-top: 20px solid #89deff;
+}
+#bg-shape:before {
+  top: -20px;
+  border-bottom: 20px solid #89deff;
+}
+
 .text {
   font-size: 16px;
   line-height: 30px;
@@ -38,7 +65,7 @@ h2 {
   font-size: 28px;
   font-weight: 300;
   align-items: left;
-  margin-top: 0;
+  margin: 0;
 }
 
 .blue-line {
@@ -46,7 +73,7 @@ h2 {
   border: 0;
   border-bottom: 2px solid #49abfe;
   display: block;
-  margin-left: 0;
+  margin: 30px 0;
 }
 /* BUTTONS */
 button {
@@ -57,7 +84,7 @@ button {
   font-weight: bold;
   width: 140px;
   height: 50px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   transition: all 300ms ease-in;
   cursor: pointer;
@@ -79,7 +106,6 @@ button {
 }
 
 form {
-  position: absolute;
   width: 60%;
 }
 
@@ -90,18 +116,35 @@ input {
   background-color: transparent;
   display: block;
   padding: 0;
-  margin-bottom: 20px;
   width: 100%;
 }
 
 a {
   text-decoration: none;
   color: #8895b7;
+  margin-top: 12px;
+}
+
+.error-msg {
+  font-size: 10px;
+  height: 20px;
+  display: block;
+  color: red;
+}
+
+.icon {
+  float: right;
+}
+
+.active {
+  display: none;
+}
+.required {
+  color: red;
 }
 
 .container {
   position: relative;
-  overflow: hidden;
   width: 884px;
   max-width: 100%;
   min-height: 462px;
@@ -144,13 +187,11 @@ a {
   overflow: hidden;
   transition: transform 0.6s ease-in-out;
   z-index: 100;
+  box-shadow: 0 5px 30px -20px black;
 }
 
 .overlay {
   background: #fff;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 0 0;
   color: #ffffff;
   position: relative;
   left: -422px;
@@ -184,28 +225,21 @@ a {
   transition: transform 0.7s ease-in-out;
 }
 
-.container.right-panel-active .overlay-left {
+.container.left-panel-active .overlay-left {
   transform: translateX(0);
 }
 
-.container.right-panel-active .overlay {
+.container.left-panel-active .overlay {
   transform: translateX(422px);
 }
 
-.container.right-panel-active .overlay-container {
+.container.left-panel-active .overlay-container {
   transform: translateX(-422px);
 }
 
 .overlay-right {
   right: 0;
   transform: translateX(0);
-}
-
-.icon {
-  float: right;
-}
-.required {
-  color: red;
 }
 
 /* FOOTER */
@@ -219,4 +253,15 @@ footer {
 .footer {
   color: #8895b7;
   font-size: 13px;
+}
+
+/* MOBILE */
+@media only screen and (max-width: 900px) {
+  .shadow-container {
+    display: none;
+  }
+
+  #bg-shape {
+    display: none;
+  }
 }

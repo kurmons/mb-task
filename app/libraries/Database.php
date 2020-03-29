@@ -23,7 +23,7 @@ class Database
 
         // Create PDO instance
         try {
-            $this->dbHandler = new PDO($dsn, $this->user, $this->pass, $options);
+            $this->dbh = new PDO($dsn, $this->user, $this->pass, $options);
         } catch (PDOException $e) {
             $this->error = $e->getMessage();
             echo $this->error;
