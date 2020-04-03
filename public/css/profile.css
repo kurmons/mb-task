@@ -1,0 +1,28 @@
+.profile {
+  background-color: #fff;
+  z-index: 100;
+  box-shadow: 0 5px 30px -20px black;
+  box-sizing: border-box;
+  padding: 4%;
+}
+
+.profile-info {
+  font-size: 16px;
+  display: block;
+  position: relative;
+}
+
+.profile-info a {
+  position: absolute;
+  right: 0;
+}
+
+.options {
+  text-align: right;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.delete-button {
+  float: right;
+}

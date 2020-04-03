@@ -75,10 +75,8 @@ class Home extends Controller
                 } else {
                     die('error');
                 }
-
-                // Insert values in database
             } else {
-                // Load view with data
+                // Load view with errors
                 $this->view('index', $data);
             }
         } else {
@@ -140,6 +138,8 @@ class Home extends Controller
                 $validUser = $this->userModel->login($data['email'], $data['password']);
 
                 if ($validUser) {
+                    // Create Session
+                    $this->createUserSession($validUser);
                 } else {
                     $data['logPassErr'] = 'Wrong password';
                     $this->view('index', $data);
@@ -163,5 +163,24 @@ class Home extends Controller
             // Load view with data
             $this->view('index', $data);
         }
+    }
+
+    // Create session when user logs in
+    public function createUserSession($user)
+    {
+        $_SESSION['userID'] = $user->id;
+        $_SESSION['userEmail'] = $user->email;
+        $_SESSION['userName'] = $user->name;
+        header('location: ' . URLROOT . 'profiles');
+    }
+
+    // Destroy session when user logs out
+    public function logout()
+    {
+        unset($_SESSION['userID']);
+        unset($_SESSION['userEmail']);
+        unset($_SESSION['userName']);
+        session_destroy();
+        header('location: ' . URLROOT . 'home/login');
     }
 }

@@ -8,38 +8,56 @@ $("#sign-in").click(function() {
 });
 
 // Change icons on input
-$(".user input").focus(function() {
-  $(".user .unactive").hide();
-  $(".user .active").show();
-  $(".user label").css("text-transform", "uppercase");
+// Sign Up elements
+$(".signup-user input").focus(function() {
+  $(".signup-user .unactive").hide();
+  $(".signup-user .active").show();
+  $(".signup-user label").css("text-transform", "uppercase");
+});
+$(".signup-user").focusout(function() {
+  $(".signup-user .active").hide();
+  $(".signup-user .unactive").show();
+  $(".signup-user label").css("text-transform", "none");
+});
+$(".signup-email input").focus(function() {
+  $(".signup-email .unactive").hide();
+  $(".signup-email .active").show();
+  $(".signup-email label").css("text-transform", "uppercase");
+});
+$(".signup-email").focusout(function() {
+  $(".signup-email .active").hide();
+  $(".signup-email .unactive").show();
+  $(".signup-email label").css("text-transform", "none");
+});
+$(".signup-password input").focus(function() {
+  $(".signup-password .unactive").hide();
+  $(".signup-password .active").show();
+  $(".signup-password label").css("text-transform", "uppercase");
+});
+$(".signup-password").focusout(function() {
+  $(".signup-password .active").hide();
+  $(".signup-password .unactive").show();
+  $(".signup-password label").css("text-transform", "none");
 });
 
-$(".user").focusout(function() {
-  $(".user .active").hide();
-  $(".user .unactive").show();
-  $(".user label").css("text-transform", "none");
+// Login elements
+$(".login-email input").focus(function() {
+  $(".login-email .unactive").hide();
+  $(".login-email .active").show();
+  $(".login-email label").css("text-transform", "uppercase");
 });
-
-$(".email input").focus(function() {
-  $(".email .unactive").hide();
-  $(".email .active").show();
-  $(".email label").css("text-transform", "uppercase");
+$(".login-email").focusout(function() {
+  $(".login-email .active").hide();
+  $(".login-email .unactive").show();
+  $(".login-email label").css("text-transform", "none");
 });
-
-$(".email").focusout(function() {
-  $(".email .active").hide();
-  $(".email .unactive").show();
-  $(".email label").css("text-transform", "none");
+$(".login-password input").focus(function() {
+  $(".login-password .unactive").hide();
+  $(".login-password .active").show();
+  $(".login-password label").css("text-transform", "uppercase");
 });
-
-$(".password input").focus(function() {
-  $(".password .unactive").hide();
-  $(".password .active").show();
-  $(".password label").css("text-transform", "uppercase");
-});
-
-$(".password").focusout(function() {
-  $(".password .active").hide();
-  $(".password .unactive").show();
-  $(".password label").css("text-transform", "none");
+$(".login-password").focusout(function() {
+  $(".login-password .active").hide();
+  $(".login-password .unactive").show();
+  $(".login-password label").css("text-transform", "none");
 });

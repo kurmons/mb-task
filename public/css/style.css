@@ -1,16 +1,17 @@
+@import "profile.css";
+
 html,
 body {
   padding: 0;
   margin: 0;
   height: 100%;
+  width: 100%;
   font-family: "Source Sans Pro", sans-serif;
+  background: url(../img/background.png) no-repeat center center fixed;
+  background-size: cover;
 }
 
 #background {
-  background-color: #000;
-  background-image: url(../img/background.png);
-  background-position: center;
-  background-size: cover;
   height: 100%;
   width: 100%;
   display: flex;
@@ -64,7 +65,6 @@ body {
 h2 {
   font-size: 28px;
   font-weight: 300;
-  align-items: left;
   margin: 0;
 }
 
@@ -89,23 +89,23 @@ button {
   transition: all 300ms ease-in;
   cursor: pointer;
 }
-.overlay button {
+.overlay-button {
   border-color: #f89a35;
   background-color: #f89a35;
 }
-.overlay button:hover {
+.overlay-button:hover {
   border-color: #f8bf35;
   background-color: #f8bf35;
 }
-.shadow-container button {
+.shadow-button {
   background-color: transparent;
   border-color: #49abfe;
 }
-.shadow-container button:hover {
+.shadow-button:hover {
   background-color: #49abfe;
 }
 
-form {
+.panel-form {
   width: 60%;
 }
 
@@ -122,6 +122,9 @@ input {
 a {
   text-decoration: none;
   color: #8895b7;
+}
+
+.overlay a {
   margin-top: 12px;
 }
 
@@ -148,25 +151,33 @@ a {
   width: 884px;
   max-width: 100%;
   min-height: 462px;
+  color: #8895b7;
+}
+
+.main-heading {
+  color: #3e495e;
+  display: inline-block;
 }
 
 /* SHADOW CONTAINER*/
 .shadow-container {
   position: absolute;
-  height: 100%;
+  height: 462px;
+  width: 884px;
   color: #fff;
+  z-index: 2;
 }
 
 .left-container {
+  position: absolute;
   left: 0;
   width: 45%;
-  z-index: 2;
 }
 
 .right-container {
+  position: absolute;
   right: 0;
   width: 45%;
-  z-index: 2;
 }
 
 .sign-up-container {
@@ -178,68 +189,62 @@ a {
 }
 
 /* OVERLAY */
-.overlay-container {
-  position: absolute;
-  top: 0;
-  left: 422px;
-  width: 462px;
-  height: 100%;
-  overflow: hidden;
-  transition: transform 0.6s ease-in-out;
-  z-index: 100;
-  box-shadow: 0 5px 30px -20px black;
-}
+@media only screen and (min-width: 900px) {
+  .overlay-container {
+    position: absolute;
+    top: 0;
+    left: 422px;
+    width: 462px;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+    box-shadow: 0 5px 30px -20px black;
+  }
 
-.overlay {
-  background: #fff;
-  color: #ffffff;
-  position: relative;
-  left: -422px;
-  height: 100%;
-  width: 884px;
-  transform: translateX(0);
-  transition: transform 0.9s ease-in-out;
-}
+  .overlay {
+    background: #fff;
+    position: relative;
+    left: -422px;
+    height: 100%;
+    width: 884px;
+    transform: translateX(0);
+    transition: transform 0.9s ease-in-out;
+  }
 
-.overlay h2 {
-  color: #3e495e;
-  display: inline-block;
+  .overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 0;
+    height: 100%;
+    width: 462px;
+    transform: translateX(0%);
+    transition: transform 0.7s ease-in-out;
+  }
+
+  .container.left-panel-active .overlay-left {
+    transform: translateX(0);
+  }
+
+  .container.left-panel-active .overlay {
+    transform: translateX(422px);
+  }
+
+  .container.left-panel-active .overlay-container {
+    transform: translateX(-422px);
+  }
+
+  .overlay-right {
+    right: 0;
+    transform: translateX(0);
+  }
 }
 
 .overlay label {
-  color: #8895b7;
   display: inline-block;
-  margin: 0;
-}
-
-.overlay-panel {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  top: 0;
-  height: 100%;
-  width: 462px;
-  transform: translateX(0%);
-  transition: transform 0.7s ease-in-out;
-}
-
-.container.left-panel-active .overlay-left {
-  transform: translateX(0);
-}
-
-.container.left-panel-active .overlay {
-  transform: translateX(422px);
-}
-
-.container.left-panel-active .overlay-container {
-  transform: translateX(-422px);
-}
-
-.overlay-right {
-  right: 0;
-  transform: translateX(0);
 }
 
 /* FOOTER */
@@ -261,7 +266,30 @@ footer {
     display: none;
   }
 
-  #bg-shape {
+  #bg-shape,
+  #form-bg {
     display: none;
+  }
+
+  .container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+  }
+
+  .overlay-container {
+    position: relative;
+    z-index: 100;
+    box-shadow: 0 5px 30px -20px black;
+  }
+
+  .overlay {
+    background: #fff;
+  }
+
+  .overlay-panel {
+    display: flex;
+    justify-content: center;
+    padding: 5% 0;
   }
 }

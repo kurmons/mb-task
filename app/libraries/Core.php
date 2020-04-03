@@ -33,6 +33,7 @@ class Core
         call_user_func_array([$this->currentController, $this->currentMethod], $this->parameters);
     }
 
+    // Get data from URL and split values
     public function getUrl()
     {
         if (isset($_GET['url'])) {

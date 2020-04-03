@@ -64,15 +64,15 @@ class Database
         return $this->statement->execute();
     }
 
-    // Result as array of objects
-    public function resultSet()
+    // Fetch results as array of objects
+    public function fetchAll()
     {
         $this->execute();
         return $this->statement->fetchAll(PDO::FETCH_OBJ);
     }
 
-    // Single record as object
-    public function single()
+    // Fetch single record as object
+    public function fetchSingle()
     {
         $this->execute();
         return $this->statement->fetch(PDO::FETCH_OBJ);
